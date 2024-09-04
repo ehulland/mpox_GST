@@ -1,4 +1,6 @@
-# Code and data compendium for the manuscript ""What’s in a name?": Using mpox as a case study to understand the importance of communication, advocacy, and information accuracy in disease nomenclature" by Erin N. Hulland, Marie-Laure Charpignon, Ghinwa Y. Hayek, Angel N. Desai, and Maimuna S. Majumder
+# Code and data compendium for the manuscript:  ""What’s in a name?": Using mpox as a case study to understand the importance of communication, advocacy, and information accuracy in disease nomenclature" 
+
+## Erin N. Hulland, Marie-Laure Charpignon, Ghinwa Y. Hayek, Angel N. Desai, and Maimuna S. Majumder
 
 ______
 
@@ -8,7 +10,7 @@ Data acquisition and preprocessing step
 
 GST data were downloaded from https://trends.google.com/trends/explore for `monkeypox` and `mpox` simultaneously between the period of November 1st, 2022 and December 1st, 2023. This was done for each of the 184 countries included in the analysis. For countries with one or more of the five UN / WHO languages (Appendix Table 1), this search was conducted again using the term `mpox` and the foreign-language term (Appendix Table 2) simultaneously. Covariate data were also acquired at this time.
 
-R codes for the main analyses 
+### R codes for the main analyses 
 
 These are the steps for running each piece of code in the main pipeline and the general details about each step.
 
@@ -39,7 +41,7 @@ The specific steps taken in each subsection are described below.
 
 2.3) For the final imputation strategy, we impute all variables with any missing data. Outside of the imputation strategy, this method is identical to step 2.2. We perform 10 imputations using predictive mean matching to impute GAI. Within each imputation, we construct our 18 univariable models and for each one we pull one draw of the multivariate normal distribution using MVRNORM and the **get_betas** function defined above. Still within a singular imputation, we then determine which variables are significant at the 0.1 threshold; these variables are then used to construct the multivariate model. The multivariate model is then evaluated within the imputation by taking one multivariate normal draw. All ten imputations (and MVRNORM draws) are then summarized jointly, using the median, 2.5th, and 97.5th percentiles to generate the 95% uncertainty interval. We additionally consider a threshold of 0.05 for multivariate model inclusion as a sensitivity analysis; these results can be seen in Appendix Figures 13 a) binary and b) continuous). The results of this section include three forest plots per outcome: one for the univariable models (Main Manuscript, Figure 1a binary and Figure2a continuous), one for the multivariate model with inclusion at 0.1 (Main Manuscript, Figure 1b binary and Figure 2b continuous), and one for the multivariate model with inclusion at 0.05 (Appendix Figure 13a and 13b)
 
-R codes for the sensitivity analyses
+### R codes for the sensitivity analyses
 
 In order to run the numerous sensitivity analyses included in this manuscript, we include the following codes:
 
