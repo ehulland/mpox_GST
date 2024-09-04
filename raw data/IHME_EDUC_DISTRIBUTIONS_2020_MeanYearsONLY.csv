@@ -1,0 +1,391 @@
+location_id,location_name,sex_id,sex,age_group_id,age_group,year,measure,measure_name,metric_name,mean,lower,upper
+6,China,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.802647,10.944817,12.797951
+6,China,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.61512,11.1232,14.047899
+7,North Korea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.43626,10.555091,14.100516
+7,North Korea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.967199,11.556019,15.897401
+8,Taiwan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.234237,14.58067,15.797476
+8,Taiwan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.855035,15.019808,16.595966
+10,Cambodia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.329906,6.039422,8.540424
+10,Cambodia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.206437,5.031767,7.663481
+11,Indonesia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.760748,9.34247,12.054371
+11,Indonesia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.988265,9.541628,12.368282
+12,Laos,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.374285,6.186689,8.474258
+12,Laos,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.175841,4.562355,7.770824
+13,Malaysia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.677062,9.423694,12.147186
+13,Malaysia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.382272,9.422446,12.93906
+14,Maldives,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.785772,5.332712,8.126887
+14,Maldives,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.523984,5.730576,9.338147
+15,Myanmar,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.208201,5.950076,8.461642
+15,Myanmar,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.776619,6.407638,9.770546
+16,Philippines,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.286762,10.230508,12.088183
+16,Philippines,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.599296,11.798209,13.439127
+17,Sri Lanka,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.014859,9.774407,12.157704
+17,Sri Lanka,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.253831,10.551975,13.809229
+18,Thailand,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.016404,9.759353,12.359082
+18,Thailand,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.303197,11.049284,13.549143
+19,Timor-Leste,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.280886,6.657168,10.047059
+19,Timor-Leste,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.679059,6.110507,9.349776
+20,Vietnam,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.890406,9.703641,12.046846
+20,Vietnam,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.293538,10.039764,12.572289
+22,Fiji,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.251754,10.496834,13.857914
+22,Fiji,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.773595,10.432148,14.445749
+23,Kiribati,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.242775,8.583585,11.664138
+23,Kiribati,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.938967,9.287699,12.415874
+24,Marshall Islands,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.458097,9.385479,13.162313
+24,Marshall Islands,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.087364,9.472444,14.353569
+25,Federated States of Micronesia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.34087,8.954652,13.158527
+25,Federated States of Micronesia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.16236,9.19593,13.166856
+26,Papua New Guinea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.018719,3.431029,6.924142
+26,Papua New Guinea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.090994,2.636264,5.499809
+27,Samoa,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.57221,10.061084,13.15515
+27,Samoa,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.18144,10.75348,13.487422
+28,Solomon Islands,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.944425,6.315905,9.292251
+28,Solomon Islands,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.665039,4.913509,8.491522
+29,Tonga,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.86666,9.854791,13.57401
+29,Tonga,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.330613,10.265615,14.113396
+30,Vanuatu,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.926217,6.6905,10.837424
+30,Vanuatu,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.853885,6.361293,11.266317
+33,Armenia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.357027,11.251078,13.27894
+33,Armenia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.280795,12.304309,14.259798
+34,Azerbaijan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.534986,11.129479,13.768322
+34,Azerbaijan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.485567,10.663125,13.72824
+35,Georgia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.487916,12.278328,14.398293
+35,Georgia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.353742,13.149321,15.270246
+36,Kazakhstan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.246046,10.821768,13.737874
+36,Kazakhstan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.178607,12.142559,14.376386
+37,Kyrgyzstan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.421809,10.995572,13.397542
+37,Kyrgyzstan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.217249,12.065924,14.406851
+38,Mongolia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.096428,7.68701,10.393032
+38,Mongolia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.648917,9.435117,11.847444
+39,Tajikistan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.934643,10.751068,12.933835
+39,Tajikistan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.256383,9.763966,12.625508
+40,Turkmenistan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.973581,9.734566,12.423233
+40,Turkmenistan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.277873,9.549204,12.942568
+41,Uzbekistan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.025843,11.484689,14.452421
+41,Uzbekistan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.016724,12.433956,15.537832
+43,Albania,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.629512,9.787064,11.552345
+43,Albania,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.208406,10.363001,12.103631
+44,Bosnia and Herzegovina,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.118386,11.148474,13.02047
+44,Bosnia and Herzegovina,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.156617,10.935057,13.312232
+45,Bulgaria,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.676341,12.121638,13.295555
+45,Bulgaria,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.422302,12.416495,14.133581
+46,Croatia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.692419,12.067866,13.241747
+46,Croatia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.521656,13.026291,13.997303
+47,Czech Republic,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.116203,12.654443,13.613551
+47,Czech Republic,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.917929,13.347043,14.537608
+48,Hungary,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.389799,11.76164,13.0034
+48,Hungary,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.001415,12.239976,13.694602
+49,Macedonia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.62105,11.880262,13.472551
+49,Macedonia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.7582,11.870792,13.496784
+50,Montenegro,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.121079,13.435312,14.705233
+50,Montenegro,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.458674,13.786064,15.103073
+51,Poland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.951884,12.406778,13.599594
+51,Poland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.16149,13.658934,14.68696
+52,Romania,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.755453,12.106107,13.404463
+52,Romania,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.277632,12.547504,13.820474
+53,Serbia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.975622,13.204026,14.640676
+53,Serbia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.671749,14.108382,15.215419
+54,Slovakia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.097088,12.579754,13.720806
+54,Slovakia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.99777,13.336835,14.607319
+55,Slovenia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.956007,13.462657,14.513111
+55,Slovenia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.996568,14.546903,15.354396
+57,Belarus,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.593833,12.20248,14.752091
+57,Belarus,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.52382,12.924136,15.616493
+58,Estonia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.670168,12.987911,14.349596
+58,Estonia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.939161,13.822623,15.680707
+59,Latvia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.805915,13.173732,14.730308
+59,Latvia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.860712,14.202301,15.546763
+60,Lithuania,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.427969,13.67056,15.114025
+60,Lithuania,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.144284,14.402082,15.776517
+61,Moldova,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.170535,12.963685,15.149931
+61,Moldova,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.743366,13.434317,15.846457
+62,Russia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.480172,13.54792,15.276651
+62,Russia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.023585,13.894479,15.750332
+63,Ukraine,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.297187,13.305708,15.264869
+63,Ukraine,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.953825,13.847013,15.981527
+66,Brunei,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.372603,10.842604,13.575361
+66,Brunei,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.96481,10.267911,13.606083
+67,Japan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.754079,14.23879,15.261576
+67,Japan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.10067,14.13665,15.847094
+68,South Korea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.486765,15.102192,15.815879
+68,South Korea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.596059,14.996413,16.058989
+69,Singapore,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.661522,12.685735,14.397742
+69,Singapore,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.925945,12.415058,15.207515
+71,Australia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.316632,12.518733,14.287965
+71,Australia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.01141,13.235895,14.766804
+72,New Zealand,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.863384,13.105149,14.69312
+72,New Zealand,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.497433,13.415455,15.162788
+74,Andorra,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.230853,13.112878,15.119281
+74,Andorra,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.56692,13.498475,15.44923
+75,Austria,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.96814,12.40818,13.535663
+75,Austria,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.29054,12.65394,13.852912
+76,Belgium,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.704585,13.143774,14.199996
+76,Belgium,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.490378,14.01866,15.046689
+77,Cyprus,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.646615,13.169244,14.209866
+77,Cyprus,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.36717,13.775335,14.931279
+78,Denmark,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.880846,14.526483,15.214283
+78,Denmark,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.412429,15.0069,15.720872
+79,Finland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.838499,13.290611,14.359032
+79,Finland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.742979,14.233422,15.131434
+80,France,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.685867,13.069934,14.198545
+80,France,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.146216,13.598535,14.631236
+81,Germany,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.905844,14.496623,15.252153
+81,Germany,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.955154,14.460311,15.356044
+82,Greece,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.09723,12.531517,13.678886
+82,Greece,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.641344,13.145603,14.164512
+83,Iceland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.393715,13.942573,14.746841
+83,Iceland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.259305,14.949782,15.449242
+84,Ireland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.557278,12.997692,14.050382
+84,Ireland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.322202,13.797813,14.771705
+85,Israel,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.92528,12.166168,13.475304
+85,Israel,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.915665,13.26509,14.465563
+86,Italy,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.292095,11.627108,12.915207
+86,Italy,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.016968,12.353326,13.599374
+87,Luxembourg,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.23307,13.468974,14.707129
+87,Luxembourg,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.397368,13.817038,14.92386
+88,Malta,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.783925,12.181388,13.341992
+88,Malta,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.010838,12.439751,13.58522
+89,Netherlands,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.549174,14.030255,15.067686
+89,Netherlands,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.983734,14.543631,15.366125
+90,Norway,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.702175,14.365395,15.057294
+90,Norway,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.423705,15.094662,15.707708
+91,Portugal,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.370376,10.879436,11.909021
+91,Portugal,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.285569,11.612996,12.844958
+92,Spain,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.996456,10.357628,11.579798
+92,Spain,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.128327,11.417095,12.717489
+93,Sweden,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.189898,13.777717,14.589691
+93,Sweden,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.954886,14.561241,15.283617
+94,Switzerland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.421036,15.101088,15.698832
+94,Switzerland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.534133,15.12021,15.831922
+95,United Kingdom,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.809945,13.31036,14.323427
+95,United Kingdom,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.09588,13.579535,14.676934
+97,Argentina,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.633672,11.03688,12.160606
+97,Argentina,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.103203,11.342036,12.72698
+98,Chile,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.826027,12.276857,13.357238
+98,Chile,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.626554,11.915914,13.310202
+99,Uruguay,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.581801,9.86382,11.189696
+99,Uruguay,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.031442,10.374216,11.795961
+101,Canada,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.119198,13.156739,14.944216
+101,Canada,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.432276,13.823052,14.969478
+102,United States,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.436902,12.874889,13.953333
+102,United States,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.647404,13.251649,14.138559
+105,Antigua and Barbuda,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.339552,10.957975,13.559819
+105,Antigua and Barbuda,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.999039,11.575988,14.256849
+106,The Bahamas,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.111653,11.905151,14.202353
+106,The Bahamas,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.775286,12.472966,14.741383
+107,Barbados,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.248246,11.977014,14.271318
+107,Barbados,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.836056,12.839043,14.866764
+108,Belize,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.765727,8.555852,11.083803
+108,Belize,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.968878,8.711772,10.975604
+109,Cuba,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.385638,11.334129,13.566899
+109,Cuba,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.225859,12.22698,14.319512
+110,Dominica,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.941266,12.587855,15.163684
+110,Dominica,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.787275,13.658958,15.597321
+111,Dominican Republic,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.757651,8.946603,10.531547
+111,Dominican Republic,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.528002,9.66524,11.435849
+112,Grenada,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.66239,8.819896,11.957829
+112,Grenada,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.108329,9.782636,12.140693
+113,Guyana,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.906495,9.947076,11.838618
+113,Guyana,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.477438,10.107515,12.561177
+114,Haiti,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.347505,7.301599,9.549027
+114,Haiti,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.076409,5.976994,8.470338
+115,Jamaica,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.152374,10.790649,13.569971
+115,Jamaica,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.04876,11.958663,14.103042
+116,Saint Lucia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.321786,8.808159,11.940348
+116,Saint Lucia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.258405,9.649123,12.750472
+117,Saint Vincent and the Grenadines,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.94533,8.323574,11.490926
+117,Saint Vincent and the Grenadines,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.574785,8.988316,12.202623
+118,Suriname,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.249948,8.750794,11.550367
+118,Suriname,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.094085,8.603796,11.386626
+119,Trinidad and Tobago,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.222285,11.068482,13.321986
+119,Trinidad and Tobago,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.853198,11.773652,13.651813
+121,Bolivia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.834046,9.931321,11.930119
+121,Bolivia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.027706,9.038743,11.172255
+122,Ecuador,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.762978,10.790299,12.755149
+122,Ecuador,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.779198,10.856662,12.657199
+123,Peru,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.931373,10.082598,12.001871
+123,Peru,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.457212,9.672748,11.396467
+125,Colombia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.793487,9.543753,11.892308
+125,Colombia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.665567,9.613759,11.835266
+126,Costa Rica,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.843459,9.799045,11.881587
+126,Costa Rica,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.877982,10.015311,11.837338
+127,El Salvador,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.005026,7.500445,10.153763
+127,El Salvador,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.763559,7.715544,9.979091
+128,Guatemala,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.908254,6.719195,9.242154
+128,Guatemala,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.017311,6.024834,8.152873
+129,Honduras,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.235277,5.946587,8.330446
+129,Honduras,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.451288,6.497813,8.61708
+130,Mexico,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.362112,9.480799,11.239911
+130,Mexico,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.81876,8.869947,10.80556
+131,Nicaragua,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.89246,6.726888,8.897639
+131,Nicaragua,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.291593,7.241298,9.520078
+132,Panama,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.866682,10.911777,12.808306
+132,Panama,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.357857,11.342499,13.350374
+133,Venezuela,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.451275,9.211946,11.464155
+133,Venezuela,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.565706,9.508158,11.456082
+135,Brazil,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.100686,8.960585,11.103812
+135,Brazil,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.660736,9.399217,11.756492
+136,Paraguay,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.916444,9.811887,11.693594
+136,Paraguay,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.14365,9.887414,12.167034
+139,Algeria,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.756358,9.019975,12.460244
+139,Algeria,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.150749,9.081132,13.137922
+140,Bahrain,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.692098,9.589646,13.820038
+140,Bahrain,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.830093,9.924699,14.913874
+141,Egypt,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.804304,12.447468,14.621928
+141,Egypt,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.646228,12.010797,15.065729
+142,Iran,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.511927,10.863011,13.852825
+142,Iran,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.576064,10.020326,14.559307
+143,Iraq,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.491572,12.057403,14.774419
+143,Iraq,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.465458,9.835881,14.253673
+144,Jordan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.613476,13.15219,15.403177
+144,Jordan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.913357,13.661416,16.002462
+145,Kuwait,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.978288,12.540529,15.023596
+145,Kuwait,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.655618,12.941013,15.828769
+146,Lebanon,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.378064,13.051386,15.284836
+146,Lebanon,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.902282,13.570648,16.369559
+147,Libya,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.281676,12.922095,15.292959
+147,Libya,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.542398,12.96041,16.112149
+148,Morocco,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.614881,6.604439,10.532004
+148,Morocco,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.615116,5.004463,9.76221
+149,Palestine,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.728935,12.053302,14.918076
+149,Palestine,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.448874,12.729916,15.766044
+150,Oman,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.032743,10.867384,14.770946
+150,Oman,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.018052,10.171775,15.307787
+151,Qatar,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.758096,10.956943,14.148963
+151,Qatar,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.187072,12.225325,15.745264
+152,Saudi Arabia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.376426,12.037155,14.904107
+152,Saudi Arabia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.919179,10.087896,15.007786
+153,Syria,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.190179,12.72187,15.536024
+153,Syria,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.033115,11.757905,15.856292
+154,Tunisia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.747209,10.106654,13.050626
+154,Tunisia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.096686,10.108586,13.493847
+155,Turkey,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.015445,13.034332,14.870941
+155,Turkey,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.444401,12.113983,14.548554
+156,United Arab Emirates,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.709533,13.398426,15.907327
+156,United Arab Emirates,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.699245,14.273219,16.8282
+157,Yemen,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.021542,8.119633,11.641902
+157,Yemen,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.394914,3.950691,8.774743
+160,Afghanistan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.979384,4.890455,9.159471
+160,Afghanistan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),2.899979,1.709617,5.549841
+161,Bangladesh,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.958523,6.558756,9.542441
+161,Bangladesh,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.624383,6.00785,9.481898
+162,Bhutan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.415734,4.085897,7.294993
+162,Bhutan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.600384,3.097556,6.811113
+163,India,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.20697,8.037098,10.381573
+163,India,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.961226,7.354492,10.500449
+164,Nepal,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.852939,6.583346,9.657847
+164,Nepal,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.467742,3.628554,7.480763
+165,Pakistan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.606243,6.888484,10.398463
+165,Pakistan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.599671,4.384254,9.075688
+168,Angola,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.484127,8.341342,12.644982
+168,Angola,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.189768,5.609539,10.322485
+169,Central African Republic,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.12654,5.676066,10.914046
+169,Central African Republic,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.947806,2.644883,7.851449
+170,Congo,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.811592,10.024166,13.213622
+170,Congo,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.593167,9.600306,13.632268
+171,Democratic Republic of the Congo,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.824941,9.924384,14.098894
+171,Democratic Republic of the Congo,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.095687,7.805825,12.01897
+172,Equatorial Guinea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.211556,12.322298,15.854961
+172,Equatorial Guinea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.163327,10.835246,15.153912
+173,Gabon,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.870123,9.720913,13.259568
+173,Gabon,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.091618,10.240988,13.709555
+175,Burundi,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.33526,4.720159,8.208138
+175,Burundi,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.93914,3.272097,7.13831
+176,Comoros,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.934691,7.676958,12.342093
+176,Comoros,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.63381,5.506664,12.102675
+177,Djibouti,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.275904,5.948776,12.248267
+177,Djibouti,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.032536,2.456598,9.822563
+178,Eritrea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.632482,6.435594,11.193339
+178,Eritrea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.133191,2.503445,8.068139
+179,Ethiopia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.351323,4.379572,8.246245
+179,Ethiopia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),3.623679,2.075385,5.467207
+180,Kenya,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.937009,9.212745,12.615198
+180,Kenya,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.123959,7.949456,12.096371
+181,Madagascar,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.524547,7.325723,11.185151
+181,Madagascar,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.781292,6.666603,10.763911
+182,Malawi,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.079761,8.522671,11.790417
+182,Malawi,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.17814,6.405473,9.878643
+183,Mauritius,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.902517,9.826906,11.931403
+183,Mauritius,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.347118,10.179494,12.578744
+184,Mozambique,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.821229,4.97535,8.665166
+184,Mozambique,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.789639,3.729318,8.414436
+185,Rwanda,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.589867,5.742722,9.377908
+185,Rwanda,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.774348,3.982993,8.201671
+186,Seychelles,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),12.290614,11.049823,13.608849
+186,Seychelles,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.419479,11.938509,14.695274
+187,Somalia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.619883,5.116023,10.495711
+187,Somalia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.429462,2.004618,8.338078
+189,Tanzania,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.739801,6.881914,10.340608
+189,Tanzania,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.843461,5.876739,9.901985
+190,Uganda,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.341623,8.572184,11.655379
+190,Uganda,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.873853,6.831064,11.023038
+191,Zambia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.378165,9.746087,12.770037
+191,Zambia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.135811,7.691817,12.564343
+193,Botswana,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.858456,8.753961,10.846506
+193,Botswana,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.06807,8.991929,11.213182
+194,Lesotho,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.642254,7.626303,9.924698
+194,Lesotho,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.001025,8.80557,10.958754
+195,Namibia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.231087,8.985821,11.560181
+195,Namibia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.35399,9.107934,11.589673
+196,South Africa,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.86522,11.080562,12.658485
+196,South Africa,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.989709,11.161192,12.880998
+197,Swaziland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.214183,9.072168,11.251948
+197,Swaziland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.816089,8.770672,10.836787
+198,Zimbabwe,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.938424,10.048977,11.750405
+198,Zimbabwe,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.498984,9.325062,11.508995
+200,Benin,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.986769,5.470391,8.680324
+200,Benin,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),3.875344,2.717558,5.138904
+201,Burkina Faso,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),3.371892,2.344227,4.771457
+201,Burkina Faso,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),1.88233,1.300771,2.572597
+202,Cameroon,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.078875,7.973648,11.694377
+202,Cameroon,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.775864,6.745324,10.594901
+203,Cape Verde,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.806455,5.928676,9.445385
+203,Cape Verde,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.200136,5.886679,10.336613
+204,Chad,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.471943,3.76837,7.500302
+204,Chad,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),2.376974,1.367604,3.627206
+205,Cote d'Ivoire,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.349401,5.34886,9.717278
+205,Cote d'Ivoire,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.86589,3.048965,6.697473
+206,The Gambia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.802964,5.792191,9.500987
+206,The Gambia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.981694,3.719968,8.189903
+207,Ghana,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.652691,10.116545,12.886614
+207,Ghana,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.172117,8.477108,12.043635
+208,Guinea,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.919414,5.165455,8.774912
+208,Guinea,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),3.121514,2.203697,4.870754
+209,Guinea-Bissau,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.968547,4.944791,9.298979
+209,Guinea-Bissau,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),3.9954,2.496881,6.255073
+210,Liberia,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.701321,7.989396,11.312792
+210,Liberia,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),7.556733,5.825122,9.391852
+211,Mali,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.205124,2.97838,5.876401
+211,Mali,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),2.349651,1.707128,3.316064
+212,Mauritania,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.625614,7.133539,11.904198
+212,Mauritania,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.229482,5.735393,11.334025
+213,Niger,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),2.896215,2.184593,4.0422
+213,Niger,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),1.613182,1.151374,2.231875
+214,Nigeria,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.297018,8.833883,11.949409
+214,Nigeria,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.452638,6.540355,10.170019
+215,Sao Tome and Principe,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.16606,7.525894,11.266619
+215,Sao Tome and Principe,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),8.883328,6.81457,11.014704
+216,Senegal,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),5.860095,4.7581,7.356422
+216,Senegal,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.090548,2.833854,5.405133
+217,Sierra Leone,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.843162,5.427836,8.600559
+217,Sierra Leone,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),4.453506,2.919595,6.435463
+218,Togo,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),9.735129,8.07115,11.355865
+218,Togo,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.066598,4.165212,8.383383
+298,American Samoa,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.222539,11.598879,14.358566
+298,American Samoa,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.005024,12.027081,15.671556
+305,Bermuda,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.579728,10.422558,12.781981
+305,Bermuda,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.249068,12.022915,14.189457
+349,Greenland,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.248813,8.644317,11.442476
+349,Greenland,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),10.657029,9.776612,11.692513
+351,Guam,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.866024,12.926843,14.704968
+351,Guam,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.331263,13.107211,15.203214
+376,Northern Mariana Islands,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.005655,12.650471,15.229464
+376,Northern Mariana Islands,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.253969,12.727396,15.500149
+385,Puerto Rico,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),13.769127,13.012236,14.43821
+385,Puerto Rico,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.333404,13.726918,14.885733
+422,"Virgin Islands, U.S.",1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),14.194987,13.368513,14.793425
+422,"Virgin Islands, U.S.",2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),15.160429,14.448262,15.792265
+435,South Sudan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),6.979451,4.537885,9.381313
+435,South Sudan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),2.346758,1.112572,4.78503
+522,Sudan,1,Male,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.721039,10.17243,13.165203
+522,Sudan,2,Female,10,25 to 29,2020,mean_years,Mean Years of Schooling,Years (0 to 18),11.169692,9.399288,13.289982

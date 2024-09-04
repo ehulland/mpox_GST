@@ -1,0 +1,187 @@
+country_name,regime_row_owid,electdem_vdem_owid,lib_vdem_owid,region
+Afghanistan,0,0.082,0.09,Asia
+Africa,,0.389125,,World
+Albania,1,0.484,0.813,Europe
+Algeria,1,0.281,0.315,Africa
+Angola,1,0.344,0.369,Africa
+Argentina,2,0.823,0.746,South America
+Armenia,2,0.645,0.642,Asia
+Asia,,0.338448979591837,,World
+Australia,3,0.858,0.965,Oceania
+Austria,2,0.794,0.889,Europe
+Azerbaijan,1,0.188,0.159,Asia
+Bahrain,0,0.122,0.171,Asia
+Bangladesh,1,0.274,0.244,Asia
+Barbados,3,0.782,0.853,North America
+Belarus,1,0.175,0.092,Europe
+Belgium,3,0.887,0.937,Europe
+Benin,1,0.45,0.598,Africa
+Bhutan,2,0.535,0.789,Asia
+Bolivia,2,0.597,0.506,South America
+Bosnia and Herzegovina,2,0.528,0.636,Europe
+Botswana,2,0.577,0.785,Africa
+Brazil,2,0.678,0.751,South America
+Bulgaria,2,0.688,0.905,Europe
+Burkina Faso,0,0.295,0.559,Africa
+Burundi,1,0.189,0.214,Africa
+Cambodia,1,0.206,0.144,Asia
+Cameroon,1,0.297,0.308,Africa
+Canada,2,0.847,0.865,North America
+Cape Verde,2,0.75,0.867,Africa
+Central African Republic,1,0.321,0.381,Africa
+Chad,0,0.14,0.073,Africa
+Chile,3,0.811,0.949,South America
+China,0,0.075,0.139,Asia
+Colombia,2,0.689,0.769,South America
+Comoros,1,0.284,0.255,Africa
+Congo,1,0.234,0.275,Africa
+Costa Rica,3,0.871,0.956,North America
+Cote d'Ivoire,1,0.437,0.45,Africa
+Croatia,2,0.738,0.887,Europe
+Cuba,0,0.178,0.141,North America
+Cyprus,3,0.777,0.819,Europe
+Czechia,3,0.853,0.929,Europe
+Democratic Republic of Congo,1,0.337,0.317,Africa
+Denmark,3,0.916,0.983,Europe
+Djibouti,1,0.255,0.312,Africa
+Dominican Republic,2,0.679,0.631,North America
+Ecuador,2,0.657,0.734,South America
+Egypt,1,0.175,0.363,Africa
+El Salvador,1,0.378,0.259,North America
+Equatorial Guinea,1,0.172,0.126,Africa
+Eritrea,0,0.073,0.029,Africa
+Estonia,3,0.893,0.961,Europe
+Eswatini,0,0.12,0.326,Africa
+Ethiopia,1,0.319,0.334,Africa
+Europe,,0.727,,World
+Fiji,1,0.406,0.561,Oceania
+Finland,3,0.861,0.964,Europe
+France,3,0.874,0.924,Europe
+Gabon,1,0.369,0.439,Africa
+Gambia,2,0.62,0.787,Africa
+Georgia,2,0.647,0.754,Asia
+Germany,3,0.857,0.96,Europe
+Ghana,2,0.633,0.865,Africa
+Greece,2,0.783,0.739,Europe
+Guatemala,1,0.435,0.511,North America
+Guinea,0,0.191,0.275,Africa
+Guinea-Bissau,1,0.371,0.361,Africa
+Guyana,2,0.535,0.623,South America
+Haiti,1,0.248,0.42,North America
+Honduras,2,0.556,0.68,North America
+Hong Kong,0,0.154,0.408,Asia
+Hungary,1,0.445,0.69,Europe
+Iceland,3,0.819,0.903,Europe
+India,1,0.399,0.679,Asia
+Indonesia,2,0.574,0.696,Asia
+Iran,1,0.182,0.311,Asia
+Iraq,1,0.362,0.419,Asia
+Ireland,3,0.889,0.934,Europe
+Israel,3,0.723,0.916,Asia
+Italy,3,0.844,0.916,Europe
+Jamaica,2,0.797,0.874,North America
+Japan,3,0.833,0.881,Asia
+Jordan,0,0.259,0.71,Asia
+Kazakhstan,1,0.277,0.338,Asia
+Kenya,2,0.522,0.785,Africa
+Kosovo,2,0.618,0.718,Europe
+Kuwait,1,0.317,0.784,Asia
+Kyrgyzstan,1,0.382,0.482,Asia
+Laos,0,0.134,0.356,Asia
+Latvia,3,0.821,0.898,Europe
+Lebanon,1,0.426,0.513,Asia
+Lesotho,2,0.641,0.769,Africa
+Liberia,2,0.634,0.696,Africa
+Libya,0,0.213,0.303,Africa
+Lithuania,2,0.797,0.949,Europe
+Luxembourg,3,0.881,0.907,Europe
+Madagascar,1,0.495,0.426,Africa
+Malawi,2,0.642,0.838,Africa
+Malaysia,1,0.438,0.614,Asia
+Maldives,2,0.583,0.725,Asia
+Mali,0,0.235,0.427,Africa
+Malta,2,0.782,0.81,Europe
+Mauritania,1,0.395,0.284,Africa
+Mauritius,2,0.521,0.694,Africa
+Mexico,2,0.598,0.499,North America
+Moldova,2,0.752,0.853,Europe
+Mongolia,2,0.566,0.728,Asia
+Montenegro,2,0.501,0.77,Europe
+Morocco,0,0.264,0.713,Africa
+Mozambique,1,0.362,0.549,Africa
+Myanmar,0,0.093,0.153,Asia
+Namibia,2,0.634,0.785,Africa
+Nepal,2,0.646,0.759,Asia
+Netherlands,3,0.852,0.953,Europe
+New Zealand,3,0.889,0.949,Oceania
+Nicaragua,1,0.177,0.064,North America
+Niger,2,0.511,0.704,Africa
+Nigeria,1,0.49,0.581,Africa
+North America,,0.591866666666667,,World
+North Korea,0,0.087,0.019,Asia
+North Macedonia,2,0.551,0.599,Europe
+Norway,3,0.899,0.965,Europe
+Oceania,,0.666666666666667,,World
+Oman,0,0.17,0.435,Asia
+Pakistan,1,0.388,0.562,Asia
+Palestine/Gaza,0,0.138,0.26,Asia
+Palestine/West Bank,,0.26,0.353,Asia
+Panama,2,0.729,0.742,North America
+Papua New Guinea,1,0.458,0.741,Oceania
+Paraguay,2,0.581,0.712,South America
+Peru,2,0.744,0.834,South America
+Philippines,1,0.431,0.567,Asia
+Poland,2,0.574,0.703,Europe
+Portugal,2,0.846,0.892,Europe
+Qatar,0,0.088,0.3,Asia
+Romania,2,0.689,0.78,Europe
+Russia,1,0.209,0.17,Europe
+Rwanda,1,0.228,0.313,Africa
+Sao Tome and Principe,2,0.684,0.847,Africa
+Saudi Arabia,0,0.016,0.171,Asia
+Senegal,2,0.69,0.754,Africa
+Serbia,1,0.361,0.614,Europe
+Seychelles,3,0.761,0.897,Africa
+Sierra Leone,2,0.559,0.73,Africa
+Singapore,1,0.425,0.725,Asia
+Slovakia,3,0.851,0.924,Europe
+Slovenia,2,0.799,0.888,Europe
+Solomon Islands,2,0.618,0.747,Oceania
+Somalia,0,0.162,0.313,Africa
+Somaliland,1,0.421,0.523,Africa
+South Africa,2,0.692,0.841,Africa
+South America,,0.658583333333333,,World
+South Korea,3,0.812,0.913,Asia
+South Sudan,0,0.129,0.181,Africa
+Spain,3,0.873,0.91,Europe
+Sri Lanka,2,0.575,0.674,Asia
+Sudan,0,0.169,0.211,Africa
+Suriname,2,0.77,0.846,South America
+Sweden,3,0.899,0.982,Europe
+Switzerland,3,0.898,0.959,Europe
+Syria,0,0.138,0.08,Asia
+Taiwan,3,0.831,0.872,Asia
+Tajikistan,1,0.175,0.114,Asia
+Tanzania,1,0.398,0.824,Africa
+Thailand,0,0.206,0.548,Asia
+Timor,2,0.695,0.687,Asia
+Togo,1,0.426,0.458,Africa
+Trinidad and Tobago,2,0.784,0.848,North America
+Tunisia,1,0.307,0.563,Africa
+Turkey,1,0.276,0.265,Asia
+Turkmenistan,0,0.149,0.083,Asia
+Uganda,1,0.285,0.522,Africa
+Ukraine,1,0.406,0.468,Europe
+United Arab Emirates,0,0.101,0.3,Asia
+United Kingdom,3,0.843,0.917,Europe
+United States,3,0.819,0.915,North America
+Uruguay,3,0.804,0.897,South America
+Uzbekistan,1,0.221,0.195,Asia
+Vanuatu,2,0.771,0.849,Oceania
+Venezuela,1,0.214,0.144,South America
+Vietnam,0,0.157,0.369,Asia
+World,,0.497,,World
+Yemen,0,0.123,0.135,Asia
+Zambia,2,0.518,0.807,Africa
+Zanzibar,1,0.284,0.624,Africa
+Zimbabwe,1,0.285,0.472,Africa
