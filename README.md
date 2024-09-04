@@ -1,4 +1,4 @@
-# Code and data compendium for the manuscript:  ""What’s in a name?": Using mpox as a case study to understand the importance of communication, advocacy, and information accuracy in disease nomenclature" 
+# Code and data compendium for the manuscript: '"What’s in a name?": Using mpox as a case study to understand the importance of communication, advocacy, and information accuracy in disease nomenclature'
 
 ## Erin N. Hulland, Marie-Laure Charpignon, Ghinwa Y. Hayek, Angel N. Desai, and Maimuna S. Majumder
 
@@ -6,7 +6,7 @@ ______
 
 This document describes the analytic step through with a focus on the elements of the R code included in this repository and details not articulated in the main manuscript or appendix. 
 
-Data acquisition and preprocessing step
+### Data acquisition and preprocessing step
 
 GST data were downloaded from https://trends.google.com/trends/explore for `monkeypox` and `mpox` simultaneously between the period of November 1st, 2022 and December 1st, 2023. This was done for each of the 184 countries included in the analysis. For countries with one or more of the five UN / WHO languages (Appendix Table 1), this search was conducted again using the term `mpox` and the foreign-language term (Appendix Table 2) simultaneously. Covariate data were also acquired at this time.
 
