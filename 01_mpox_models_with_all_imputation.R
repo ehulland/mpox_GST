@@ -175,15 +175,21 @@ df_orig<-df_orig[order(included)]
 df_orig[included=='Excluded - significance', signif:='Non-significant']
 
 
+#turn into ORs
+df_orig2<-df_orig
+df_orig2[,`:=`(est=exp(est), lci=exp(lci), uci=exp(uci))]
+
+mm1_ests2<-mm1_ests
+mm1_ests2[,`:=`(est=exp(est), lci=exp(lci), uci=exp(uci))]
+
 #make a tweak for ever mpox so the line doesn't show up on the figure:
-df_orig[var=='factor(ever_mpox)1', `:=`(lci=-20, uci=-20, est=-20)]
-jpeg(paste0(dir,'/figures/univar_df_dichotomous_noimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=df_orig)+geom_vline(xintercept = 0, col='black',lty=2)+
+jpeg(paste0(dir,'/figures/univar_df_dichotomous_noimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=df_orig2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
-  coord_cartesian(xlim=c(-5,5))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
+  coord_cartesian(xlim=c(0,15))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -191,30 +197,36 @@ ggplot(data=df_orig)+geom_vline(xintercept = 0, col='black',lty=2)+
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
          text=element_text(size=20)
-  )
+  )+
+  geom_segment(data=df_orig2[uci>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))+
+  geom_segment(data=df_orig2[lci<0.01,],aes(x = 0.02, xend = 0.01, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 
 dev.off()
 
-jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_noimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=mm1_ests)+geom_vline(xintercept = 0, col='black',lty=2)+
+
+
+jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_noimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=mm1_ests2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
     panel.grid.major.y = element_line(color = "light grey", size = 0.3),
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-5,5))+
+  )+coord_cartesian(xlim=c(0,15))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
          text=element_text(size=20)
-  )
+  )+
+  geom_segment(data=mm1_ests2[uci>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
 dev.off()
 
 ######
@@ -632,49 +644,70 @@ uni_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(
 
 uni_imputation<-uni_imputation[order(included)]
 #make a tweak for ever mpox so the line doesn't show up on the figure:
-uni_imputation[var=='factor(ever_mpox)1', `:=`(lower_est=-20, upper_est=-20, median_est=-20)]
+#uni_imputation[var=='factor(ever_mpox)1', `:=`(lower_est=-20, upper_est=-20, median_est=-20)]
+
+#convert to ORs
+
+uni_imputation2<-uni_imputation
+uni_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+mm1_imputation2<-mm1_imputation
+mm1_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+mm2_imputation2<-mm2_imputation
+mm2_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+#remove the point est for ever_mpox just for plotting in the uni_imputation2:
+uni_imputation2[var=='factor(ever_mpox)1', median_est:=NA]
+
 #GAI imputation only, univariable model
-jpeg(paste0(dir,'/figures/univar_df_dichotomous_GAIimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=uni_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
+jpeg(paste0(dir,'/figures/univar_df_dichotomous_GAIimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=uni_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
   #   panel.grid.major.y = element_line(color = "light grey", size = 0.3),
   #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
   #   panel.grid.minor = element_blank(), 
   #   axis.line = element_blank())
-  coord_cartesian(xlim=c(-5,5))+
+  coord_cartesian(xlim=c(0,15))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme(panel.spacing=unit(2, "lines"),
          , strip.placement.y = "outside"
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
-         text=element_text(size=20))
+         text=element_text(size=20))+
+  geom_segment(data=uni_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))+
+  geom_segment(data=uni_imputation2[lower_est<0.01,],aes(x = 0.02, xend = 0.01, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 dev.off()
 
-jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_GAIimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=mm1_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
+jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_GAIimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=mm1_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
     panel.grid.major.y = element_line(color = "light grey", size = 0.3),
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-5,5))+
+  )+coord_cartesian(xlim=c(0,15))+
   theme_classic() +
   theme(panel.spacing=unit(2, "lines"),
         , strip.placement.y = "outside"
         , strip.background = element_blank()
         , strip.text = element_text(face = "bold"),
-        text=element_text(size=20))
+        text=element_text(size=20))+
+  geom_segment(data=mm1_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))+
+  geom_segment(data=mm1_imputation2[lower_est<0.01,],aes(x = 0.02, xend = 0.01, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 dev.off()
 
 #add color coding & clean up variable names
@@ -765,19 +798,30 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
 
 uni_f_imputation<-uni_f_imputation[order(included)]
 
-jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
+#turn into ORs
+
+uni_f_imputation2<-uni_f_imputation
+uni_f_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+mm1_f_imputation2<-mm1_f_imputation
+mm1_f_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+mm2_f_imputation2<-mm2_f_imputation
+mm2_f_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=uni_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
   #   panel.grid.major.y = element_line(color = "light grey", size = 0.3),
   #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
   #   panel.grid.minor = element_blank(), 
   #   axis.line = element_blank())
-  coord_cartesian(xlim=c(-5,5))+
+  coord_cartesian(xlim=c(0,15))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -785,52 +829,58 @@ ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
          text=element_text(size=20)
-  )
+  )+
+  geom_segment(data=uni_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 
 dev.off()
 
-jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_fullimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
+jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_fullimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
     panel.grid.major.y = element_line(color = "light grey", size = 0.3),
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-5,5))+
+  )+coord_cartesian(xlim=c(0,15))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
          text=element_text(size=20)
-  )
+  )+
+      geom_segment(data=mm1_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 dev.off()
 
-jpeg(paste0(dir,'/figures/multivar005_df_dichotomous_fullimputation_grouped.jpeg'), height=700, width=1000)
-ggplot(data=mm2_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
+jpeg(paste0(dir,'/figures/multivar005_df_dichotomous_fullimputation_grouped_OR.jpeg'), height=700, width=1000)
+ggplot(data=mm2_f_imputation)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
     panel.grid.major.y = element_line(color = "light grey", size = 0.3),
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-5,5))+
+  )+coord_cartesian(xlim=c(0,15))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
          , strip.background = element_blank()
          , strip.text = element_text(face = "bold"),
          text=element_text(size=20)
-  )
+  )+
+  geom_segment(data=mm2_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
 dev.off()
 
 #summary stats across imputations
