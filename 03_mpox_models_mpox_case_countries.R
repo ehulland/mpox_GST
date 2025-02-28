@@ -295,7 +295,7 @@ jpeg(paste0(dir,'/figures/univar_df_dichotomous_mpoxcase_grouped_OR.jpeg'), heig
 ggplot(data=uni_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -321,7 +321,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_mpoxcase_grouped_OR.jpeg'), 
 ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Red','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -597,7 +597,7 @@ jpeg(paste0(dir,'/figures/univar_df_continuous_mpoxcase_grouped.jpeg'), height=7
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -620,7 +620,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_continuous_mpoxcase_grouped.jpeg'), heig
 ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   theme(
     panel.border = element_blank(), 
