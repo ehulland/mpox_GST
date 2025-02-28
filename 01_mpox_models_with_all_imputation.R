@@ -187,7 +187,7 @@ jpeg(paste0(dir,'/figures/univar_df_dichotomous_noimputation_grouped_OR.jpeg'), 
 ggplot(data=df_orig2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   coord_cartesian(xlim=c(0,15))+
   facet_grid(included~., scales='free',switch='y')+
@@ -210,7 +210,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_noimputation_grouped_OR.jpeg
 ggplot(data=mm1_ests2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -665,7 +665,7 @@ jpeg(paste0(dir,'/figures/univar_df_dichotomous_GAIimputation_grouped_OR.jpeg'),
 ggplot(data=uni_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -690,7 +690,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_GAIimputation_grouped_OR.jpe
 ggplot(data=mm1_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -813,7 +813,7 @@ jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped_OR.jpeg')
 ggplot(data=uni_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -839,7 +839,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_fullimputation_grouped_OR.jp
 ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -863,7 +863,7 @@ jpeg(paste0(dir,'/figures/multivar005_df_dichotomous_fullimputation_grouped_OR.j
 ggplot(data=mm2_f_imputation)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -1071,7 +1071,7 @@ jpeg(paste0(dir,'/figures/univar_df_continuous_noimputation_grouped.jpeg'), heig
 ggplot(data=df_orig)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -1094,7 +1094,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_continuous_noimputation_grouped.jpeg'), 
 ggplot(data=mm1_ests)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lci, xmax=uci, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -1567,7 +1567,7 @@ jpeg(paste0(dir,'/figures/univar_df_continuous_GAIimputation_grouped.jpeg'), hei
 ggplot(data=uni_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
    coord_cartesian(xlim=c(-0.5,0.5))+
   facet_grid(included~., scales='free',switch='y')+
@@ -1584,7 +1584,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_continuous_GAIimputation_grouped.jpeg'),
 ggplot(data=mm1_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
@@ -1693,7 +1693,7 @@ jpeg(paste0(dir,'/figures/univar_df_continuous_fullimputation_grouped.jpeg'), he
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
    coord_cartesian(xlim=c(-0.5,0.5))+
   facet_grid(included~., scales='free',switch='y')+
@@ -1710,7 +1710,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_continuous_fullimputation_grouped.jpeg')
 ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -1732,7 +1732,7 @@ jpeg(paste0(dir,'/figures/multivar005_df_continuous_fullimputation_grouped.jpeg'
 ggplot(data=mm2_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance at p<0.05', values=c('Black','Red','Green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','Red','Green'))+
   ylab('')+xlab('Point estimate (95% UI)')+
   theme(
     panel.border = element_blank(), 
