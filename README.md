@@ -1,4 +1,4 @@
-# Code and data compendium for the manuscript: '"What’s in a name?": Using mpox as a case study to understand the importance of communication, advocacy, and information accuracy in destigmatizing disease nomenclature'
+# Code and data compendium for the manuscript: 'On the importance of communication, advocacy, and information accuracy in destigmatizing mpox disease'
 
 ## Erin N. Hulland, Marie-Laure Charpignon, Ghinwa Y. Hayek, Angel N. Desai, and Maimuna S. Majumder
 
