@@ -26,7 +26,7 @@ set.seed(1007)
 source("~/mpox_codes/00_data_import_cleaning.R")
        
 ##### 
-#### FULL DATA IMPUTATION, Dichotomous model, 184 observations
+#### FULL DATA IMPUTATION, Dichotomous model, 188 observations
 #####
 
 #full imputation
@@ -59,18 +59,18 @@ for(x in 1:10){
 
   imputed[,norm_fem_edu:=(Female_edu_mean_yrs_25_29-min(Female_edu_mean_yrs_25_29, na.rm=T))/(max(Female_edu_mean_yrs_25_29, na.rm=T)-min(Female_edu_mean_yrs_25_29, na.rm=T))]
   imputed[,logit_fem_edu:=log((norm_fem_edu)/(1-norm_fem_edu))]
-  imputed[norm_fem_edu %in% c(0,1),logit_fem_edu:=log((norm_fem_edu+(0.5/184))/(1-norm_fem_edu+(0.5/184)))]
+  imputed[norm_fem_edu %in% c(0,1),logit_fem_edu:=log((norm_fem_edu+(0.5/188))/(1-norm_fem_edu+(0.5/188)))]
   
   imputed[,norm_gender_phone_gap:=(Risk_comms_gender_gap_access_phone_3_6_3a)/100]
   imputed[,logit_gender_phone_gap:=log((norm_gender_phone_gap)/(1-norm_gender_phone_gap))]
-  imputed[norm_gender_phone_gap %in% c(0,1),logit_gender_phone_gap:=log((norm_gender_phone_gap+(0.5/184))/(1-norm_gender_phone_gap+(0.5/184)))]
+  imputed[norm_gender_phone_gap %in% c(0,1),logit_gender_phone_gap:=log((norm_gender_phone_gap+(0.5/188))/(1-norm_gender_phone_gap+(0.5/188)))]
   
   imputed[,norm_gender_internet_gap:=(Risk_comms_gender_gap_access_internet_3_6_4_a)/100]
-  imputed[,logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/184))/(1-norm_gender_internet_gap+(0.5/184)))]
-  imputed[norm_gender_internet_gap %in% c(0,1),logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/184))/(1-norm_gender_internet_gap+(0.5/184)))]
+  imputed[,logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
+  imputed[norm_gender_internet_gap %in% c(0,1),logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
   
   imputed[,logit_lib:=log((lib_vdem_owid)/(1-lib_vdem_owid))]
-  imputed[lib_vdem_owid %in% c(0,1),logit_lib:=log((lib_vdem_owid+(0.5/184))/(1-lib_vdem_owid+(0.5/184)))]
+  imputed[lib_vdem_owid %in% c(0,1),logit_lib:=log((lib_vdem_owid+(0.5/188))/(1-lib_vdem_owid+(0.5/188)))]
   
 
   imputed[,factor_pop_inclusion_riskcomm:=factor(Risk_comms_pop_inclusion_3_5_1b, levels=c(0,100),
@@ -114,8 +114,6 @@ for(x in 1:10){
                      p=summary(get(model))$coef[rows,4])
     df<-rbind(df,ests) 
     #beta hat estimate for each model
-    #set seed
-    set.seed(1007)
     beta_ests<-data.frame(imp=x,
                           var=rownames(summary(get(model))$coef)[rows],
                           beta=get_betas(get(model),10)[x,rows])
@@ -145,8 +143,7 @@ for(x in 1:10){
                        lci=summary(mm1)$coef[-1,1]-1.96*summary(mm1)$coef[-1,2],
                        uci=summary(mm1)$coef[-1,1]+1.96*summary(mm1)$coef[-1,2],
                        p=summary(mm1)$coef[-1,4])
-  #set seed
-  set.seed(1007)
+
   beta_mm1<-data.frame(imp=x,
                        var=rownames(summary(mm1)$coef)[-1],
                        beta=get_betas(mm1,10)[x,-1])
@@ -168,8 +165,7 @@ for(x in 1:10){
                        lci=summary(mm2)$coef[-1,1]-1.96*summary(mm2)$coef[-1,2],
                        uci=summary(mm2)$coef[-1,1]+1.96*summary(mm2)$coef[-1,2],
                        p=summary(mm2)$coef[-1,4])
-   #set seed
-   set.seed(1007)
+
   beta_mm2<-data.frame(imp=x,
                        var=rownames(summary(mm2)$coef)[-1],
                        beta=get_betas(mm2,10)[x,-1])
@@ -219,16 +215,16 @@ uni_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 #add color coding & clean up variable names
 mm1_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
@@ -246,16 +242,16 @@ mm1_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 #add color coding & clean up variable names
 mm2_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
@@ -273,16 +269,16 @@ mm2_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 
 uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(regime_row_owid)2', 'factor(regime_row_owid)3','HAQI_mean','day',
@@ -306,7 +302,7 @@ jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped_OR_rockch
 ggplot(data=uni_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance', values=c('Black','red','green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','purple','green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   # theme(
   #   panel.border = element_blank(), 
@@ -331,7 +327,7 @@ jpeg(paste0(dir,'/figures/multivar01_df_dichotomous_fullimputation_grouped_OR_ro
 ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance', values=c('Black','red','green'))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','purple','green'))+
   ylab('')+xlab('Odds Ratio (95% UI)')+
   theme(
     panel.border = element_blank(), 
@@ -352,7 +348,7 @@ ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
 dev.off()
 
 ##### 
-#### FULL DATA IMPUTATION, 184 observations
+#### FULL DATA IMPUTATION, 188 observations
 #####
 
 #again change the missing "day" data to 999 and then sub out after imputing
@@ -385,18 +381,18 @@ for(x in 1:10){
   
   imputed[,norm_fem_edu:=(Female_edu_mean_yrs_25_29-min(Female_edu_mean_yrs_25_29, na.rm=T))/(max(Female_edu_mean_yrs_25_29, na.rm=T)-min(Female_edu_mean_yrs_25_29, na.rm=T))]
   imputed[,logit_fem_edu:=log((norm_fem_edu)/(1-norm_fem_edu))]
-  imputed[norm_fem_edu %in% c(0,1),logit_fem_edu:=log((norm_fem_edu+(0.5/184))/(1-norm_fem_edu+(0.5/184)))]
+  imputed[norm_fem_edu %in% c(0,1),logit_fem_edu:=log((norm_fem_edu+(0.5/188))/(1-norm_fem_edu+(0.5/188)))]
   
   imputed[,norm_gender_phone_gap:=(Risk_comms_gender_gap_access_phone_3_6_3a)/100]
   imputed[,logit_gender_phone_gap:=log((norm_gender_phone_gap)/(1-norm_gender_phone_gap))]
-  imputed[norm_gender_phone_gap %in% c(0,1),logit_gender_phone_gap:=log((norm_gender_phone_gap+(0.5/184))/(1-norm_gender_phone_gap+(0.5/184)))]
+  imputed[norm_gender_phone_gap %in% c(0,1),logit_gender_phone_gap:=log((norm_gender_phone_gap+(0.5/188))/(1-norm_gender_phone_gap+(0.5/188)))]
   
   imputed[,norm_gender_internet_gap:=(Risk_comms_gender_gap_access_internet_3_6_4_a)/100]
-  imputed[,logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/184))/(1-norm_gender_internet_gap+(0.5/184)))]
-  imputed[norm_gender_internet_gap %in% c(0,1),logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/184))/(1-norm_gender_internet_gap+(0.5/184)))]
+  imputed[,logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
+  imputed[norm_gender_internet_gap %in% c(0,1),logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
   
   imputed[,logit_lib:=log((lib_vdem_owid)/(1-lib_vdem_owid))]
-  imputed[lib_vdem_owid %in% c(0,1),logit_lib:=log((lib_vdem_owid+(0.5/184))/(1-lib_vdem_owid+(0.5/184)))]
+  imputed[lib_vdem_owid %in% c(0,1),logit_lib:=log((lib_vdem_owid+(0.5/188))/(1-lib_vdem_owid+(0.5/188)))]
   
   
   
@@ -442,8 +438,6 @@ for(x in 1:10){
                      p=summary(get(model))$coef[rows,4])
     df<-rbind(df,ests) 
     #beta hat estimate for each model
-    #set seed
-    set.seed(1007)
     beta_ests<-data.frame(imp=x,
                           var=rownames(summary(get(model))$coef)[rows],
                           beta=get_betas(get(model),10)[x,rows])
@@ -472,8 +466,7 @@ for(x in 1:10){
                        lci=summary(mm1)$coef[-1,1]-1.96*summary(mm1)$coef[-1,2],
                        uci=summary(mm1)$coef[-1,1]+1.96*summary(mm1)$coef[-1,2],
                        p=summary(mm1)$coef[-1,4])
-  #set seed
-  set.seed(1007)
+
   beta_mm1<-data.frame(imp=x,
                        var=rownames(summary(mm1)$coef)[-1],
                        beta=get_betas(mm1,10)[x,-1])
@@ -495,8 +488,7 @@ for(x in 1:10){
                        lci=summary(mm2)$coef[-1,1]-1.96*summary(mm2)$coef[-1,2],
                        uci=summary(mm2)$coef[-1,1]+1.96*summary(mm2)$coef[-1,2],
                        p=summary(mm2)$coef[-1,4])
-  #set seed
-  set.seed(1007)
+
   beta_mm2<-data.frame(imp=x,
                        var=rownames(summary(mm2)$coef)[-1],
                        beta=get_betas(mm2,10)[x,-1])
@@ -550,16 +542,16 @@ uni_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 #add color coding & clean up variable names
 mm1_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
@@ -577,16 +569,16 @@ mm1_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 mm2_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
                                  ifelse(lower_est>0 & upper_est>0, 'Significant - positive',
@@ -603,16 +595,16 @@ mm2_f_imputation[,Variable:=factor(var,
                                      'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
                                    
                                    labels=c('Years of education females 25-29 years (logit)',
-                                            'Senior leaders used misinformation (Yes vs. No)',
-                                            'Risk communications are inclusive (Yes vs. No)', 
-                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
-                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Senior leaders used misinformation (Yes vs. No)*',
+                                            'Risk communications are inclusive (Yes vs. No)*', 
+                                            'Political regime (Liberal Democracy vs. Closed Autocracy)*',
+                                            'Political regime (Electoral vs. Closed Autocracy)*','Political regime (Electoral Democracy vs. Closed Autocracy)*',
                                             'Percent households with internet',
                                             "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
-                                            'LGBT Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'LGBTQ+ Global Acceptance Index', 'Healthcare Access and Quality Index',
                                             'GHSI 2021 risk communication score','GHSI 2021 overall score',
                                             'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
-                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Ever had a case of mpox (Yes vs. No)*','Electoral democracy', 
                                             'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 
 
@@ -622,13 +614,16 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
 
 uni_f_imputation<-uni_f_imputation[order(included)]
 
+uni_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
+mm1_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
+
 jpeg(paste0(dir,'/figures/univar_df_continuous_fullimputation_grouped_rockchalk.jpeg'), height=700, width=1000)
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance', values=c('Black','red','green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
-   coord_cartesian(xlim=c(-0.5,0.5))+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','purple','green'))+
+  ylab('')+xlab('Beta coefficient (95% UI)')+
+   coord_cartesian(xlim=c(-0.05,0.05))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -643,15 +638,15 @@ jpeg(paste0(dir,'/figures/multivar01_df_continuous_fullimputation_grouped_rockch
 ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
-  theme_bw()+scale_color_manual('Significance', values=c('Black','red','green'))+
-  ylab('')+xlab('Point estimate (95% UI)')+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','purple','green'))+
+  ylab('')+xlab('Beta coefficient (95% UI)')+
   theme(
     panel.border = element_blank(), 
     panel.grid.major.y = element_line(color = "light grey", size = 0.3),
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.5,0.5))+
+  )+coord_cartesian(xlim=c(-0.05,0.05))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"

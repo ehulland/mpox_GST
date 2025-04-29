@@ -1,0 +1,419 @@
+#Load in libraries, and install as needed
+library(devtools)
+#install_github('trendecon/trendecon')
+library(trendecon)
+library(gtrendsR)
+library(tsbox)
+library(data.table)
+library(lubridate)
+library(readr)
+library(sf)
+library(ggplot2)
+library(secr)
+library(ggmice)
+library(mice)
+library(corrplot)
+library(MASS)
+library(pscl)
+library(EnvStats)
+library(modEvA)
+
+rm(list=ls())
+
+#set seed
+set.seed(1007)
+#source data cleaning script
+source("~/mpox_codes/00_data_import_cleaning.R")
+       
+##### 
+#### FULL DATA IMPUTATION, Dichotomous model, 188 observations
+#####
+
+#full imputation
+#again change the missing "day" data to 999 and then sub out after imputing
+full_dat_imp<-full_data[!is.na(yr2022)]
+full_dat_imp[,`:=`(date_min=NULL)]
+full_dat_imp[is.na(day),day:=999]
+
+imp<-mice(full_dat_imp, method='pmm', m=10)
+set.seed(1007)
+get_betas<-function(model_fit, ndraws){
+  betas = coef(model_fit)
+  vcov = vcov(model_fit)
+  betas_simulated = MASS::mvrnorm(ndraws, betas, vcov)
+  return(betas_simulated)
+}
+#analyze at each imputation
+df_uni_f<-data.frame()
+betas_imputed_uni_f<-data.frame()
+ests_imputed_mm1_f<-data.frame()
+ests_imputed_mm2_f<-data.frame()
+betas_imputed_mm1_f<-data.frame()
+betas_imputed_mm2_f<-data.frame()
+
+for(x in 1:10){
+  imputed<-complete(imp, x)
+  setDT(imputed)
+  imputed[day==999, day:=NA]
+  imputed[,log_GDP:=log(yr2022)]
+
+  imputed[,norm_fem_edu:=(Female_edu_mean_yrs_25_29-min(Female_edu_mean_yrs_25_29, na.rm=T))/(max(Female_edu_mean_yrs_25_29, na.rm=T)-min(Female_edu_mean_yrs_25_29, na.rm=T))]
+  imputed[,logit_fem_edu:=log((norm_fem_edu)/(1-norm_fem_edu))]
+  imputed[norm_fem_edu %in% c(0,1),logit_fem_edu:=log((norm_fem_edu+(0.5/188))/(1-norm_fem_edu+(0.5/188)))]
+  
+  imputed[,norm_gender_phone_gap:=(Risk_comms_gender_gap_access_phone_3_6_3a)/100]
+  imputed[,logit_gender_phone_gap:=log((norm_gender_phone_gap)/(1-norm_gender_phone_gap))]
+  imputed[norm_gender_phone_gap %in% c(0,1),logit_gender_phone_gap:=log((norm_gender_phone_gap+(0.5/188))/(1-norm_gender_phone_gap+(0.5/188)))]
+  
+  imputed[,norm_gender_internet_gap:=(Risk_comms_gender_gap_access_internet_3_6_4_a)/100]
+  imputed[,logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
+  imputed[norm_gender_internet_gap %in% c(0,1),logit_gender_internet_gap:=log((norm_gender_internet_gap+(0.5/188))/(1-norm_gender_internet_gap+(0.5/188)))]
+  
+  imputed[,logit_lib:=log((lib_vdem_owid)/(1-lib_vdem_owid))]
+  imputed[lib_vdem_owid %in% c(0,1),logit_lib:=log((lib_vdem_owid+(0.5/188))/(1-lib_vdem_owid+(0.5/188)))]
+  
+
+  imputed[,factor_pop_inclusion_riskcomm:=factor(Risk_comms_pop_inclusion_3_5_1b, levels=c(0,100),
+                                                labels=c('No',"Yes"))]
+  imputed[,factor_misinfo_riskcomm:=factor(Risk_comms_leader_share_misinfo_3_5_2b, levels=c(0,100),
+                                          labels=c('No',"Yes"))]
+
+  lm1<-glm(mpox_greater~CPI_2022,data=imputed,family = binomial(link = "logit"))
+  lm2<-glm(mpox_greater~GAI,data=imputed,family = binomial(link = "logit"))
+  lm3<-glm(mpox_greater~HAQI_mean,data=imputed,family = binomial(link = "logit"))
+  lm4<-glm(mpox_greater~log_GDP,data=imputed,family = binomial(link = "logit"))
+  lm5<-glm(mpox_greater~logit_fem_edu,data=imputed,family = binomial(link = "logit")) 
+  lm6<-glm(mpox_greater~Overall,data=imputed,family = binomial(link = "logit")) 
+  lm7<-glm(mpox_greater~Risk_comm_3_5,data=imputed,family = binomial(link = "logit"))
+  lm8<-glm(mpox_greater~factor_pop_inclusion_riskcomm,data=imputed,family = binomial(link = "logit"))
+  lm9<-glm(mpox_greater~factor_misinfo_riskcomm,data=imputed,family = binomial(link = "logit"))
+  lm10<-glm(mpox_greater~logit_gender_internet_gap,data=imputed,family = binomial(link = "logit"))
+  lm11<-glm(mpox_greater~Risk_coms_mobile_subscribers_3_6_2,data=imputed,family = binomial(link = "logit"))
+  lm12<-glm(mpox_greater~logit_gender_phone_gap,data=imputed,family = binomial(link = "logit"))
+  lm13<-glm(mpox_greater~Risk_comms_pct_hh_internet_3_6_1a,data=imputed,family = binomial(link = "logit"))
+  lm14<-glm(mpox_greater~day,data=imputed,family = binomial(link = "logit"))
+  lm15<-glm(mpox_greater~factor(regime_row_owid),data=imputed,family = binomial(link = "logit"))
+  lm16<-glm(mpox_greater~electdem_vdem_owid,data=imputed,family = binomial(link = "logit"))
+  lm17<-glm(mpox_greater~logit_lib,data=imputed,family = binomial(link = "logit"))
+  lm18<-glm(mpox_greater~factor(ever_mpox),data=imputed,family = binomial(link = "logit"))
+
+  #test each var if signif:
+  df<-data.frame()
+  betas_uni<-data.frame()
+  for(mod in 1:18){
+    model<-paste0('lm',mod)
+    rows<-nrow(summary(get(model))$coef)
+    if(rows>2){
+      rows<-2:rows
+    }
+    ests<-data.frame(imp=x,
+                     var=rownames(summary(get(model))$coef)[rows],
+                     est=summary(get(model))$coef[rows,1],
+                     lci=summary(get(model))$coef[rows,1]-1.96*summary(get(model))$coef[-1,2],
+                     uci=summary(get(model))$coef[rows,1]+1.96*summary(get(model))$coef[-1,2],
+                     p=summary(get(model))$coef[rows,4])
+    df<-rbind(df,ests) 
+    #beta hat estimate for each model
+     beta_ests<-data.frame(imp=x,
+                          var=rownames(summary(get(model))$coef)[rows],
+                          beta=get_betas(get(model),10)[x,rows])
+    betas_uni<-rbind(betas_uni, beta_ests)
+  }
+  setDT(df)
+  setDT(betas_uni)
+  
+  df_uni_f<-rbind(df_uni_f,df)
+  betas_imputed_uni_f<-rbind(betas_imputed_uni_f, betas_uni)
+  
+  #remove highly collinear variables
+  df<-df[!var %in% c('Risk_comms_pct_hh_internet_3_6_1a','HAQI_mean', 'CPI_2022', 'day',
+                     'logit_lib','factor(regime_row_owid)1','factor(regime_row_owid)2','factor(regime_row_owid)3')]
+  keep<-df[p<0.25,var]
+  
+  formula<- paste0("mpox_greater~",paste(keep, collapse = "+"))
+  formula<-gsub("Yes","",formula)
+  formula<-gsub("[)]1",")", formula)
+  formula<-gsub("[)]3",")", formula)
+  
+  mm1<-glm(formula,data=imputed,family = binomial(link = "logit")) 
+
+  mm1_ests<-data.frame(imp=x,
+                       var=rownames(summary(mm1)$coef)[-1],
+                       est=summary(mm1)$coef[-1,1],
+                       lci=summary(mm1)$coef[-1,1]-1.96*summary(mm1)$coef[-1,2],
+                       uci=summary(mm1)$coef[-1,1]+1.96*summary(mm1)$coef[-1,2],
+                       p=summary(mm1)$coef[-1,4])
+
+  beta_mm1<-data.frame(imp=x,
+                       var=rownames(summary(mm1)$coef)[-1],
+                       beta=get_betas(mm1,10)[x,-1])
+  ests_imputed_mm1_f<-rbind(ests_imputed_mm1_f, mm1_ests)
+  betas_imputed_mm1_f<-rbind(betas_imputed_mm1_f,beta_mm1)
+
+  #remove highly collinear variables
+  df<-df[!var %in% c('Risk_comms_pct_hh_internet_3_6_1a','HAQI_mean', 'CPI_2022','day', 
+                     'logit_lib','factor(regime_row_owid)1','factor(regime_row_owid)2','factor(regime_row_owid)3')]
+  keep<-df[p<1,var]
+  formula<- paste0("mpox_greater~",paste(keep, collapse = "+"))
+  formula<-gsub("Yes","",formula)
+  formula<-gsub("[)]1",")", formula)
+  mm2<-glm(formula,data=imputed,family = binomial(link = "logit")) #signif
+  
+   mm2_ests<-data.frame(imp=x,
+                       var=rownames(summary(mm2)$coef)[-1],
+                       est=summary(mm2)$coef[-1,1],
+                       lci=summary(mm2)$coef[-1,1]-1.96*summary(mm2)$coef[-1,2],
+                       uci=summary(mm2)$coef[-1,1]+1.96*summary(mm2)$coef[-1,2],
+                       p=summary(mm2)$coef[-1,4])
+   #set seed
+   set.seed(1007)
+  beta_mm2<-data.frame(imp=x,
+                       var=rownames(summary(mm2)$coef)[-1],
+                       beta=get_betas(mm2,10)[x,-1])
+  ests_imputed_mm2_f<-rbind(ests_imputed_mm2_f, mm2_ests)
+  betas_imputed_mm2_f<-rbind(betas_imputed_mm2_f,beta_mm2)
+}
+setDT(betas_imputed_mm1_f)
+#summarize across imputations
+betas_imputed_mm1_f[,lower_est:=quantile(beta, c(0.025)),by=c('var')]
+betas_imputed_mm1_f[,upper_est:=quantile(beta, c(0.975)),by=c('var')]
+betas_imputed_mm1_f[,median_est:=quantile(beta, c(0.5)),by=c('var')]
+
+mm1_f_imputation<-betas_imputed_mm1_f[,c('var','lower_est','upper_est','median_est')]
+mm1_f_imputation<-mm1_f_imputation[!duplicated(mm1_f_imputation)]
+
+setDT(betas_imputed_mm2_f)
+
+betas_imputed_mm2_f[,lower_est:=quantile(beta, c(0.025)),by=c('var')]
+betas_imputed_mm2_f[,upper_est:=quantile(beta, c(0.975)),by=c('var')]
+betas_imputed_mm2_f[,median_est:=quantile(beta, c(0.5)),by=c('var')]
+
+mm2_f_imputation<-betas_imputed_mm2_f[,c('var','lower_est','upper_est','median_est')]
+mm2_f_imputation<-mm2_f_imputation[!duplicated(mm2_f_imputation)]
+
+setDT(betas_imputed_uni_f)
+betas_imputed_uni_f<-betas_imputed_uni_f[order(beta),]
+betas_imputed_uni_f[,lower_est:=quantile(beta, c(0.025)),by=c('var')]
+betas_imputed_uni_f[,upper_est:=quantile(beta, c(0.975)),by=c('var')]
+betas_imputed_uni_f[,median_est:=quantile(beta, c(0.5)),by=c('var')]
+
+uni_f_imputation<-betas_imputed_uni_f[,c('var','lower_est','upper_est','median_est')]
+uni_f_imputation<-uni_f_imputation[!duplicated(uni_f_imputation)]
+
+#add color coding & clean up variable names
+uni_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
+                               ifelse(lower_est>0 & upper_est>0, 'Significant - positive',
+                                      'Non-significant'))]
+uni_f_imputation[,Variable:=factor(var,
+                                   levels=c(
+                                     'logit_fem_edu',
+                                     'factor_misinfo_riskcommYes',
+                                     'factor_pop_inclusion_riskcommYes','factor(regime_row_owid)3',
+                                     'factor(regime_row_owid)1','factor(regime_row_owid)2','Risk_comms_pct_hh_internet_3_6_1a',
+                                     "Risk_coms_mobile_subscribers_3_6_2",'logit_lib',
+                                     'GAI','HAQI_mean','Risk_comm_3_5','Overall',
+                                     'log_GDP','logit_gender_phone_gap','logit_gender_internet_gap',
+                                     'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
+                                   
+                                   labels=c('Years of education females 25-29 years (logit)',
+                                            'Senior leaders used misinformation (Yes vs. No)',
+                                            'Risk communications are inclusive (Yes vs. No)', 
+                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
+                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Percent households with internet',
+                                            "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
+                                            'LGBTQ+Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'GHSI 2021 risk communication score','GHSI 2021 overall score',
+                                            'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
+                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
+#add color coding & clean up variable names
+mm1_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
+                               ifelse(lower_est>0 & upper_est>0, 'Significant - positive',
+                                      'Non-significant'))]
+mm1_f_imputation[,Variable:=factor(var,
+                                   levels=c(
+                                     'logit_fem_edu',
+                                     'factor_misinfo_riskcommYes',
+                                     'factor_pop_inclusion_riskcommYes','factor(regime_row_owid)3',
+                                     'factor(regime_row_owid)1','factor(regime_row_owid)2','Risk_comms_pct_hh_internet_3_6_1a',
+                                     "Risk_coms_mobile_subscribers_3_6_2",'logit_lib',
+                                     'GAI','HAQI_mean','Risk_comm_3_5','Overall',
+                                     'log_GDP','logit_gender_phone_gap','logit_gender_internet_gap',
+                                     'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
+                                   
+                                   labels=c('Years of education females 25-29 years (logit)',
+                                            'Senior leaders used misinformation (Yes vs. No)',
+                                            'Risk communications are inclusive (Yes vs. No)', 
+                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
+                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Percent households with internet',
+                                            "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
+                                            'LGBTQ+Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'GHSI 2021 risk communication score','GHSI 2021 overall score',
+                                            'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
+                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
+
+
+#add color coding & clean up variable names
+mm2_f_imputation[,signif:=ifelse(lower_est<0 & upper_est<0, 'Significant - negative',
+                               ifelse(lower_est>0 & upper_est>0, 'Significant - positive',
+                                      'Non-significant'))]
+mm2_f_imputation[,Variable:=factor(var,
+                                   levels=c(
+                                     'logit_fem_edu',
+                                     'factor_misinfo_riskcommYes',
+                                     'factor_pop_inclusion_riskcommYes','factor(regime_row_owid)3',
+                                     'factor(regime_row_owid)1','factor(regime_row_owid)2','Risk_comms_pct_hh_internet_3_6_1a',
+                                     "Risk_coms_mobile_subscribers_3_6_2",'logit_lib',
+                                     'GAI','HAQI_mean','Risk_comm_3_5','Overall',
+                                     'log_GDP','logit_gender_phone_gap','logit_gender_internet_gap',
+                                     'factor(ever_mpox)1','electdem_vdem_owid','day','CPI_2022'),
+                                   
+                                   labels=c('Years of education females 25-29 years (logit)',
+                                            'Senior leaders used misinformation (Yes vs. No)',
+                                            'Risk communications are inclusive (Yes vs. No)', 
+                                            'Political regime (Liberal Democracy versus Closed Autocracy)',
+                                            'Political regime (Electoral versus Closed Autocracy)','Political regime (Electoral Democracy versus Closed Autocracy)',
+                                            'Percent households with internet',
+                                            "Mobile subscribers per 100 population",'Liberal democracy score (logit)',
+                                            'LGBTQ+Global Acceptance Index', 'Healthcare Access and Quality Index',
+                                            'GHSI 2021 risk communication score','GHSI 2021 overall score',
+                                            'GDP per capita (log)','Female access to mobile phone (logit)','Female access to internet (logit)', 
+                                            'Ever had a case of mpox yes vs no','Electoral democracy', 
+                                            'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
+
+uni_f_imputation1<-uni_f_imputation2<-copy(uni_f_imputation)
+uni_f_imputation1[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(regime_row_owid)2', 'factor(regime_row_owid)3','HAQI_mean','day',
+                                              'logit_lib', 'CPI_2022', 'Risk_comms_pct_hh_internet_3_6_1a'),'Excluded - multicollinearity',
+                                   ifelse(var %in% mm1_f_imputation$var, 'Included', 'Excluded - significance'))]
+
+uni_f_imputation1<-uni_f_imputation1[order(included)]
+
+uni_f_imputation2[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(regime_row_owid)2', 'factor(regime_row_owid)3','HAQI_mean','day',
+                                               'logit_lib', 'CPI_2022', 'Risk_comms_pct_hh_internet_3_6_1a'),'Excluded - multicollinearity',
+                                    ifelse(var %in% mm2_f_imputation$var, 'Included', 'Excluded - significance'))]
+
+uni_f_imputation2<-uni_f_imputation2[order(included)]
+
+
+#turn into ORs
+
+uni_f_imputation21<-uni_f_imputation1
+uni_f_imputation21[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+
+uni_f_imputation22<-uni_f_imputation2
+uni_f_imputation22[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+
+mm1_f_imputation2<-mm1_f_imputation
+mm1_f_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+mm2_f_imputation2<-mm2_f_imputation
+mm2_f_imputation2[,`:=`(median_est=exp(median_est), lower_est=exp(lower_est), upper_est=exp(upper_est))]
+
+jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped_OR_threshold25.jpeg'), height=700, width=1000)
+ggplot(data=uni_f_imputation21)+geom_vline(xintercept = 1, col='black',lty=2)+
+  geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
+  geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
+  # theme(
+  #   panel.border = element_blank(), 
+  #   panel.grid.major.y = element_line(color = "light grey", size = 0.3),
+  #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
+  #   panel.grid.minor = element_blank(), 
+  #   axis.line = element_blank())
+  coord_cartesian(xlim=c(0,15))+
+  facet_grid(included~., scales='free',switch='y')+
+  theme_classic() +
+  theme( panel.spacing=unit(2, "lines")
+         , strip.placement.y = "outside"
+         , strip.background = element_blank()
+         , strip.text = element_text(face = "bold"),
+         text=element_text(size=20)
+  )+
+  geom_segment(data=uni_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
+dev.off()
+
+jpeg(paste0(dir,'/figures/multivar25_df_dichotomous_fullimputation_grouped_OR_thresh.jpeg'), height=700, width=1000)
+ggplot(data=mm1_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
+  geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
+  geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','purple','green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
+  theme(
+    panel.border = element_blank(), 
+    panel.grid.major.y = element_line(color = "light grey", size = 0.3),
+    panel.grid.major.x = element_line(color = "light grey", size = 0.3),
+    panel.grid.minor = element_blank(), 
+    axis.line = element_blank()
+  )+coord_cartesian(xlim=c(0,15))+
+  theme_classic() +
+  theme( panel.spacing=unit(2, "lines")
+         , strip.placement.y = "outside"
+         , strip.background = element_blank()
+         , strip.text = element_text(face = "bold"),
+         text=element_text(size=20)
+  )+
+      geom_segment(data=mm1_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
+dev.off()
+
+
+
+jpeg(paste0(dir,'/figures/univar_df_dichotomous_fullimputation_grouped_OR_NOthresh.jpeg'), height=700, width=1000)
+ggplot(data=uni_f_imputation22)+geom_vline(xintercept = 1, col='black',lty=2)+
+  geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
+  geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
+  # theme(
+  #   panel.border = element_blank(), 
+  #   panel.grid.major.y = element_line(color = "light grey", size = 0.3),
+  #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
+  #   panel.grid.minor = element_blank(), 
+  #   axis.line = element_blank())
+  coord_cartesian(xlim=c(0,15))+
+  facet_grid(included~., scales='free',switch='y')+
+  theme_classic() +
+  theme( panel.spacing=unit(2, "lines")
+         , strip.placement.y = "outside"
+         , strip.background = element_blank()
+         , strip.text = element_text(face = "bold"),
+         text=element_text(size=20)
+  )+
+  geom_segment(data=uni_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
+dev.off()
+
+jpeg(paste0(dir,'/figures/multivar_df_dichotomous_fullimputation_grouped_OR_NOthresh.jpeg'), height=700, width=1000)
+ggplot(data=mm2_f_imputation2)+geom_vline(xintercept = 1, col='black',lty=2)+
+  geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
+  geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
+  theme_bw()+scale_color_manual('Significance', values=c('Black','green'))+
+  ylab('')+xlab('Odds Ratio (95% UI)')+
+  theme(
+    panel.border = element_blank(), 
+    panel.grid.major.y = element_line(color = "light grey", size = 0.3),
+    panel.grid.major.x = element_line(color = "light grey", size = 0.3),
+    panel.grid.minor = element_blank(), 
+    axis.line = element_blank()
+  )+coord_cartesian(xlim=c(0,15))+
+  theme_classic() +
+  theme( panel.spacing=unit(2, "lines")
+         , strip.placement.y = "outside"
+         , strip.background = element_blank()
+         , strip.text = element_text(face = "bold"),
+         text=element_text(size=20)
+  )+
+  geom_segment(data=mm1_f_imputation2[upper_est>15,],aes(x = 15.5, xend = 15.8, y = Variable, col=signif), arrow = arrow(length = unit(0.3, "cm")))
+
+dev.off()
+
+#save univar dataset:
+save.image(file=paste0(dir,"/thresholds_fullimpute_binary.Rdata"))
+
