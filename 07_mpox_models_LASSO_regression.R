@@ -282,9 +282,6 @@ temps_f[,Variable:=factor(var,
                                    'Ever had a case of mpox yes vs no','Electoral democracy', 
                                    'Days since first 2022 outbreak case reported','Corruption Perceptions Index 2022'))]
 
-
-temps_f[,`:=`(median=median/10, q025=q025/10, q975=q975/10)]
-
 jpeg(paste0(dir,'/figures/multivar_continuous_fullimputation_grouped_lasso2.jpeg'), height=700, width=1000)
 ggplot(data=temps_f)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median,y=Variable, col=signif), cex=6)+
@@ -297,7 +294,7 @@ ggplot(data=temps_f)+geom_vline(xintercept = 0, col='black',lty=2)+
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.05,0.05))+
+  )+coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
@@ -310,3 +307,6 @@ dev.off()
 tab<-table(temps$var)
 tabs<-as.data.frame(tab)
 tabs
+
+save.image(file=paste0(dir,"/univar_fullimpute_LASSO.Rdata"))
+

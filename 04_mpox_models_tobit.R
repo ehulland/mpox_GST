@@ -287,11 +287,6 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
 
 uni_f_imputation<-uni_f_imputation[order(included)]
 
-#divide all results by 10 to get 10% change in variable
-uni_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm1_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-
-
 jpeg(paste0(dir,'/figures/univar_df_continuous_tobit_grouped.jpeg'), height=700, width=1000)
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
@@ -304,7 +299,7 @@ ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
   #   panel.grid.minor = element_blank(), 
   #   axis.line = element_blank())
-  coord_cartesian(xlim=c(-0.1,0.1))+
+  coord_cartesian(xlim=c(-0.6,0.6))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -327,7 +322,7 @@ ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.05,0.05))+
+  )+coord_cartesian(xlim=c(-0.6,0.6))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"

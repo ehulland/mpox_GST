@@ -1074,9 +1074,6 @@ df_orig[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(regime_
 
 df_orig<-df_orig[order(included)]
 
-#divide all results by 10 to get 10% change in variable
-df_orig[,`:=`(est=est/10, lci=lci/10, uci=uci/10)]
-mm1_ests[,`:=`(est=est/10, lci=lci/10, uci=uci/10)]
 
 jpeg(paste0(dir,'/figures/univar_df_continuous_noimputation_grouped.jpeg'), height=700, width=1000)
 ggplot(data=df_orig)+geom_vline(xintercept = 0, col='black',lty=2)+
@@ -1090,7 +1087,7 @@ ggplot(data=df_orig)+geom_vline(xintercept = 0, col='black',lty=2)+
   #   panel.grid.major.x = element_line(color = "light grey", size = 0.3),
   #   panel.grid.minor = element_blank(), 
   #   axis.line = element_blank())
-  coord_cartesian(xlim=c(-0.05,0.05))+
+  coord_cartesian(xlim=c(-0.5,0.5))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -1113,7 +1110,7 @@ ggplot(data=mm1_ests)+geom_vline(xintercept = 0, col='black',lty=2)+
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.05,0.05))+
+  )+coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
@@ -1574,19 +1571,13 @@ uni_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'factor(
 
 uni_imputation<-uni_imputation[order(included)]
 
-
-#divide all results by 10 to get 10% change in variable
-uni_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm1_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm2_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-
 jpeg(paste0(dir,'/figures/univar_df_continuous_GAIimputation_grouped.jpeg'), height=700, width=1000)
 ggplot(data=uni_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance', values=c('Black','purple','Green'))+
   ylab('')+xlab('Beta coefficient (95% UI)')+
-   coord_cartesian(xlim=c(-0.05,0.05))+
+   coord_cartesian(xlim=c(-0.5,0.5))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -1603,7 +1594,7 @@ ggplot(data=mm1_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance', values=c('Black','purple','Green'))+
   ylab('')+xlab('Beta coefficient (95% UI)')+
-  coord_cartesian(xlim=c(-0.05,0.05))+
+  coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
@@ -1707,31 +1698,15 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
 uni_f_imputation<-uni_f_imputation[order(included)]
 #create a nice label for plotting
 
-uni_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm1_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm2_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
 
-
-
-
-mm1_f_imputation[,label:=paste0(round(median_est,3), " (",round(lower_est,3),"-", round(upper_est,3),")")]
-mm1_f_imputation[var=='logit_fem_edu', label:='-4.4e-4 (-2.4e-3 - 1.0e-3)']
-mm1_f_imputation[var=='Overall', label:='3.0e-4 (1.3e-4 - 5.1e-4)']
-mm1_f_imputation[var=='Risk_comm_3_5', label:='-2.1e-7 (-1.2e-4 - 2.9e-4)']
-mm1_f_imputation[var=='factor_pop_inclusion_riskcommYes', label:='-9.2e-4 (-1.1e-2 - 4.0e-3)']
-mm1_f_imputation[var=='factor_misinfo_riskcommYes', label:='-0.11 (-0.020 - -0.002)']
-mm1_f_imputation[var=='logit_gender_internet_gap', label:='-4.5e-5 (-5.6e-4 - 3.2e-4)']
-mm1_f_imputation[var=='Risk_coms_mobile_subscribers_3_6_2', label:='-2.7e-5 (-1.6e-4 - 6.4e-4)']
-mm1_f_imputation[var=='logit_gender_phone_gap', label:='-2.1e-4 (-1.4e-3 - 1.2e-3)']
-mm1_f_imputation[var=='electdem_vdem_owid', label:='-3.5e-4 (-7.5e-3 - 5.1e-3)']
-mm1_f_imputation[var=='factor(ever_mpox)1', label:='0.010 (0.007 - 0.014)']
-
-
-
-mm1_f_imputation[,plot_pt:=ifelse(median_est>0.1, 0.1, 0.03)]
-
-mm2_f_imputation[,label:=paste0(round(median_est,3), " (",round(lower_est,3),"-", round(upper_est,3),")")]
-mm2_f_imputation[,plot_pt:=ifelse(median_est>0.1, 0.1, 0.03)]
+mm1_f_imputation[,label:=paste0(round(median_est,3), " (",round(lower_est,3),";", round(upper_est,3),")")]
+mm1_f_imputation[var=='logit_fem_edu', label:='-0.004 (-0.024;-0.010)']
+mm1_f_imputation[var=='Risk_comm_3_5', label:='-0.000 (-0.001;0.003)']
+mm1_f_imputation[var=='factor_pop_inclusion_riskcommYes', label:='-0.009 (-0.119;0.040)']
+mm1_f_imputation[var=='factor_misinfo_riskcommYes', label:='-0.110 (-0.199;-0.017)']
+mm1_f_imputation[var=='logit_gender_internet_gap', label:='0.000 (-0.006;0.003)' ]
+mm1_f_imputation[var=='Risk_coms_mobile_subscribers_3_6_2', label:='0.000 (-0.002;0.001)']
+mm1_f_imputation[,plot_pt:=0.3]
 
 jpeg(paste0(dir,'/figures/univar_df_continuous_fullimputation_grouped.jpeg'), height=700, width=1000)
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
@@ -1739,7 +1714,7 @@ ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_errorbarh(aes(xmin=lower_est, xmax=upper_est, y=Variable, col=signif), height=0)+
   theme_bw()+scale_color_manual('Significance', values=c('Black','purple','Green'))+
   ylab('')+xlab('Beta coefficient (95% UI)')+
-  coord_cartesian(xlim=c(-0.05,0.05))+
+  coord_cartesian(xlim=c(-0.5,0.5))+
   facet_grid(included~., scales='free',switch='y')+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
@@ -1762,7 +1737,7 @@ ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.05,0.05))+
+  )+coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"
@@ -1784,7 +1759,7 @@ ggplot(data=mm2_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
     panel.grid.major.x = element_line(color = "light grey", size = 0.3),
     panel.grid.minor = element_blank(), 
     axis.line = element_blank()
-  )+coord_cartesian(xlim=c(-0.05,0.05))+
+  )+coord_cartesian(xlim=c(-0.5,0.5))+
   theme_classic() +
   theme( panel.spacing=unit(2, "lines")
          , strip.placement.y = "outside"

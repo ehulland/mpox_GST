@@ -596,9 +596,6 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
                                    ifelse(var %in% mm1_f_imputation$var, 'Included', 'Excluded - significance'))]
 
 uni_f_imputation<-uni_f_imputation[order(included)]
-#divide all results by 10 to get 10% change in variable
-uni_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
-mm1_f_imputation[,`:=`(median_est=median_est/10, lower_est=lower_est/10, upper_est=upper_est/10)]
 
 jpeg(paste0(dir,'/figures/univar_df_continuous_foreign_grouped.jpeg'), height=700, width=1000)
 ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
@@ -613,7 +610,7 @@ ggplot(data=uni_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   #   panel.grid.minor = element_blank(), 
   #   axis.line = element_blank())
   facet_grid(included~., scales='free',switch='y')+
-  theme_classic() +coord_cartesian(xlim=c(-0.05,0.05))+
+  theme_classic() +coord_cartesian(xlim=c(-0.5,0.5))+
   theme(panel.spacing=unit(2, "lines"),
         , strip.placement.y = "outside"
         , strip.background = element_blank()
