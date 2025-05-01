@@ -680,7 +680,6 @@ uni_f_imputation[,included:=ifelse(var %in% c('factor(regime_row_owid)1', 'facto
 uni_f_imputation<-uni_f_imputation[order(included)]
 
 
-
 jpeg(paste0(dir,'/figures/multivar0_df_continuous_fullimputation_grouped_thresh25.jpeg'), height=700, width=1000)
 ggplot(data=mm1_f_imputation)+geom_vline(xintercept = 0, col='black',lty=2)+
   geom_point(aes(x=median_est,y=Variable, col=signif), cex=6)+
